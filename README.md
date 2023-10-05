@@ -12,7 +12,7 @@
     - [Table of Contents](#table-of-contents)
   - [Description](#description)
       - [Technologies](#technologies)
-  - [How To Use](#how-to-use)
+  - [Screenshots](#screenshots)
   - [License](#license)
   - [Author Info](#author-info)
 
@@ -41,7 +41,10 @@ The Capstone project is restricted to the following technologies:
 
 ---
 
-## How To Use
+## Screenshots
+![LogIn Desktop](assets/screenshots/Login_desktop.jpg)
+![LogIn Mobile](assets/screenshots/Login_mobile.jpg)
+![Dashboard Desktop](assets/screenshots/Dashboard_desktop.jpg)
 
 
 ## License
