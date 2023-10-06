@@ -10,15 +10,18 @@
 
 - [Capstone Project](#capstone-project)
     - [Table of Contents](#table-of-contents)
-  - [Description](#description)
+  - [Overview](#overview)
       - [Technologies](#technologies)
-  - [Screenshots](#screenshots)
+  - [Description](#description)
+  - [Figma design](#figma-design)
+  - [Flowchart](#flowchart)
+  - [Future enhancements](#future-enhancements)
   - [License](#license)
   - [Author Info](#author-info)
 
 ---
 
-## Description
+## Overview
 
 The Capstone project is the final project required to graduate from the [Introduction to Software Engineering Program](https://www.alxafrica.com/intro-to-software-engineering/) by [ALX Africa](alxafrica.com). 
 
@@ -41,11 +44,27 @@ The Capstone project is restricted to the following technologies:
 
 ---
 
-## Screenshots
-![LogIn Desktop](assets/screenshots/Login_desktop.jpg)
-![LogIn Mobile](assets/screenshots/Login_mobile.jpg)
-![Dashboard Desktop](assets/screenshots/Dashboard_desktop.jpg)
+## Description
 
+The ***FundTrack*** web app is a financial app that is used to track assets and liabilities. It uses the basic accounting equation.
+
+[Back To The Top](#capstone-project)
+
+## Figma design
+The full figma design showcase for the webapp can be found [here](figma_showcase.md)
+
+[Back To The Top](#capstone-project)
+
+## Flowchart
+The flowchart of the webapp:
+
+![flowchart](assets/flowchart.png)
+
+[Back To The Top](#capstone-project)
+
+
+## Future enhancements
+Plans for the future includes updates in the UI, more customization options, support for more advanced accounting functions and more.
 
 ## License
 
@@ -59,6 +78,7 @@ Copyright (c) [2023] [Tareq AL-Dhaifani]
 ---
 
 ## Author Info
+For feedback or collab request:
 - Tareq AL-Dhaifani
 - Email - tareqaldhaifani@gmail.com
 
