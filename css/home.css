@@ -68,18 +68,6 @@ main .hero .buttons .signup:hover {
   cursor: pointer;
 }
 
-/*============
-    footer
-=============*/
-footer {
-  position: fixed;
-  bottom: 35px;
-  width: 100vw;
-  text-align: center;
-  color: #013220;
-  padding: 0 10px;
-}
-
 /*===============
   Responsiveness
 ===============*/

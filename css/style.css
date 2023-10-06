@@ -39,3 +39,15 @@ body {
     font-family: 'Open Sans', sans-serif;
     height: 100vh;
 }
+
+/*============
+    footer
+=============*/
+footer {
+  position: fixed;
+  bottom: 35px;
+  width: 100vw;
+  text-align: center;
+  color: #013220;
+  padding: 0 10px;
+}
