@@ -1,6 +1,9 @@
 [Go to main README](./README.md)
 
 ## Figma design showcase
+### Home page
+![Home page animation](assets/figma_design/home_animation.gif)
+
 ### Login page
 ![Login page animation](assets/figma_design/login_aimation.gif)
 
