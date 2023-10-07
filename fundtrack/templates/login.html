@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block css_link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+
+{% block body %}
+
+<header>
+    <div class="logo_container">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="logo">
+    </div>
+</header>
+<main>
+    <div class="hero">
+        <h1>Log into<br>your account</h1>
+        <form class="login_form">
+            <div class="form_element">
+                <label for="email">Email</label>
+                <input type="text" class="email" placeholder="name@example.com">
+            </div>
+            <div class="form_element">
+                <label for="passwd">Password</label>
+                <input type="password" class="passwd" placeholder="Your password">
+            </div>
+            <div class="link_btn">
+                <p>
+                Don't have an account? <a href="/signup">Signup</a>  
+                </p>
+                <button class="login_btn">Login</button>
+            </div>
+        </form>
+    </div>
+</main>
+<footer>
+<p>
+© 2023 FundTrack. All Rights Reserved.
+</p>
+</footer>
+
+{% endblock %}

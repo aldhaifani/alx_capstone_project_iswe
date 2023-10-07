@@ -1,6 +1,6 @@
 # Capstone Project
 
-![Project Image](./assets/logo.jpg)
+![Project Image](./design%20images/logo.png)
 
 > The names and numbers in this README are all madeup.
 
