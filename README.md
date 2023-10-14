@@ -58,7 +58,7 @@ The full figma design showcase for the webapp can be found [here](figma_showcase
 ## Flowchart
 The flowchart of the webapp:
 
-![flowchart](assets/flowchart.png)
+![flowchart](./design%20images/flowchart.png)
 
 [Back To The Top](#capstone-project)
 
