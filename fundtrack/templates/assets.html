@@ -1,1 +1,83 @@
 {% extends "layout.html" %}
+
+{% block css_link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/assets.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<div id="main-content">
+    <h1 class="title">{{ session['title'] }}</h1>
+    <div class="card">
+        <div class="card_header">
+            <div class="card_header_left">
+                <h3>Current</h3>
+                <p class="card_time">For 2023</p>
+            </div>
+            <div class="card_header_right">
+                <a href="#">
+                    <button class="card_button">Add</button>
+                </a>
+            </div>
+        </div>
+        <div class="card_body">
+            <table>
+                <tr>
+                    <td>Current Inventory</td>
+                    <td>1,523,401</td>
+                </tr>
+                <tr>
+                    <td>Trade receivables</td>
+                    <td>2,423,670</td>
+                </tr>
+                <tr>
+                    <td>Current biological assets</td>
+                    <td>1,149,680</td>
+                </tr>
+                <tr>
+                    <td>Cash in the bank</td>
+                    <td>774,544</td>
+                </tr>
+                <tr>
+                    <td class="total">Total</td>
+                    <td class="total">4,322,207</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card_header">
+            <div class="card_header_left">
+                <h3>Non-Current</h3>
+                <p class="card_time">For 2023</p>
+            </div>
+            <div class="card_header_right">
+                <a href="#">
+                    <button class="card_button">Add</button>
+                </a>
+            </div>
+        </div>
+        <div class="card_body">
+            <table>
+                <tr>
+                    <td>Property, plant, and equipment</td>
+                    <td>6,513,478</td>
+                </tr>
+                <tr>
+                    <td>Intangible assets</td>
+                    <td>44,334</td>
+                </tr>
+                <tr>
+                    <td>Right-of-use assets</td>
+                    <td>23,474</td>
+                </tr>
+                <tr>
+                    <td class="total">Total</td>
+                    <td class="total">6,581,286</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
