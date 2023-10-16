@@ -1,1 +1,28 @@
 {% extends "layout.html" %}
+
+{% block css_link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reports.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<div id="main-content">
+    <h1 class="title">{{ session['title'] }}</h1>
+    <div class="statement_list">
+        <ul>
+            <li>
+                <div class="statement_title">
+                    <h1>Statement of Financial Position</h1>
+                    <p class="statement_time">For 2023</p>
+                </div>
+                <a href="#">
+                    <button class="download_button">
+                        <i class="fa-solid fa-download fa-xl"></i>
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
