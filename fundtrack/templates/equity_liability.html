@@ -1,1 +1,107 @@
 {% extends "layout.html" %}
+
+{% block css_link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/equity_liability.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<div id="main-content">
+    <h1 class="title">{{ session['title'] }}</h1>
+    <div class="card">
+        <div class="card_header">
+            <div class="card_header_left">
+                <h3>Equity</h3>
+                <p class="card_time">For 2023</p>
+            </div>
+            <div class="card_header_right">
+                <a href="#">
+                    <button class="card_button">Add</button>
+                </a>
+            </div>
+        </div>
+        <div class="card_body">
+            <table>
+                <tr>
+                    <td>Issued Capital</td>
+                    <td>2,800,000</td>
+                </tr>
+                <tr>
+                    <td>Other reserves</td>
+                    <td>556,011</td>
+                </tr>
+                <tr>
+                    <td>Retained earnings</td>
+                    <td>1,847,698</td>
+                </tr>
+                <tr>
+                    <td class="total">Total</td>
+                    <td class="total">1,508,313</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="card" id="liability">
+        <div class="card_header">
+            <div class="card_header_left">
+                <h3>Liability</h3>
+                <p class="card_time">For 2023</p>
+            </div>
+            <div class="card_header_right">
+                <a href="#">
+                    <button class="card_button">Add</button>
+                </a>
+            </div>
+        </div>
+        <div class="card_body">
+            <h4>Non-Current</h4>
+            <table>
+                <tr>
+                    <td>Provisions for employees</td>
+                    <td>266,668</td>
+                </tr>
+                <tr>
+                    <td>Borrowings, non-current</td>
+                    <td>1,046,121</td>
+                </tr>
+                <tr>
+                    <td>Non-current Lease</td>
+                    <td>21,526</td>
+                </tr>
+                <tr>
+                    <td>Deferred Taxes </td>
+                    <td>101,512</td>
+                </tr>
+                <tr>
+                    <td class="total">Total</td>
+                    <td class="total">1,435,827</td>
+                </tr>
+            </table>
+            <h4>Current</h4>
+            <table>
+                <tr>
+                    <td>Trade payables</td>
+                    <td>3,692,583</td>
+                </tr>
+                <tr>
+                    <td>Borrowings, current</td>
+                    <td>4,642</td>
+                </tr>
+                <tr>
+                    <td>Current Lease</td>
+                    <td>23,474</td>
+                </tr>
+                <tr>
+                    <td>Current tax</td>
+                    <td>111,042</td>
+                </tr>
+                <tr>
+                    <td class="total">Total</td>
+                    <td class="total">9,395,180</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
