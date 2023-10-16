@@ -1,0 +1,92 @@
+/* --- main content --- */
+#main-content {
+    height: calc(100vh - 80px);
+    width: calc(100vw - 250px);
+    margin-top: 90px;
+    padding: 40px 20px 20px 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#main-content .title {
+    display: none;
+}
+
+.card {
+    color: white;
+    background-color: #322659;
+    width: 40%;
+    border-radius: 20px;
+    height: fit-content;
+    letter-spacing: 1px;
+    padding: 30px;
+}
+
+.card .card_header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.card .card_time {
+    color: #91969a;
+    font-size: medium;
+}
+
+.card .card_button {
+    width: 100px;
+    height: 40px;
+    border: solid #aaaaaa;
+    border-radius: 5px;
+    background-color: #FBFCFE;
+    color: #5A6ACF;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.card .card_button:hover {
+    opacity: .9;
+}
+
+.card .chart_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cash h1 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/*===============
+  Responsiveness
+===============*/
+
+/* --- tablet --- */
+@media (max-width: 900px){
+    #main-content {
+        flex-direction: column;
+        overflow-y: scroll;
+        padding-top: 70px;
+    }
+    .card {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+/* --- mobile & small tablets --- */
+@media (max-width: 800px){
+    /*-- main --*/
+    #main-content {
+        width: 100vw;
+        position: absolute;
+        z-index: 1;
+    }
+    #main-content .title {
+        display: block;
+        margin-top: 100px;
+    }
+
+}
