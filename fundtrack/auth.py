@@ -1,7 +1,7 @@
 """
 authentication blueprint definition script
 """
-from flask import Blueprint, render_template, flash, request, redirect, url_for
+from flask import Blueprint, render_template, flash, request, redirect, url_for, session
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
@@ -21,6 +21,7 @@ def login():
         if user:
             if check_password_hash(user.password, passwd):
                 login_user(user, remember=True)
+                session["username"] = current_user.name
                 return redirect(url_for("views.dashboard"))
             else:
                 flash("Please check your email and password.", category="error")
@@ -33,7 +34,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('views.home'))
+    return redirect(url_for("views.home"))
 
 
 @auth.route("/signup", methods=["GET", "POST"])
