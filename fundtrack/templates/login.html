@@ -52,8 +52,9 @@
         }
     });
 
+    const params = new URLSearchParams(window.location.search);
+
     if (params.get('user_created') == 'True') {
-        console.log('here');
         error.style.display = '';
         error.innerHTML = 'Account created successfuly!';
         error.style.backgroundColor = 'green';

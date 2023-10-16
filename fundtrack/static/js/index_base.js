@@ -7,7 +7,7 @@
 ==================*/
 const form = document.getElementById('form');
 const error = document.getElementById('error_msg');
-const params = new URLSearchParams(window.location.search);
+
 
 form.addEventListener('submit', (e) => {
   if (!validateEmail() || !validatePassword() || !validateCPassword()) {
@@ -15,7 +15,9 @@ form.addEventListener('submit', (e) => {
   }
 });
 
-/* Password validation */
+/*------------------------
+  Password validation 
+------------------------*/
 let validatePassword = () => {
   const pswd = document.getElementById('passwd').value;
   if (pswd) {
@@ -58,7 +60,9 @@ let validateCPassword = () => {
   return true;
 };
 
-/* Email validation */
+/*-------------------
+  Email validation
+-------------------*/
 let validateEmail = () => {
   const email = document.getElementById('email').value;
 
@@ -69,12 +73,3 @@ let validateEmail = () => {
   }
   return true;
 };
-
-/* Get query string parameter value 
-let query_string_param = function (key) {
-  const params = new Proxy(new URLSearchParams(window.location.search), {
-    get: (searchParams, prop) => searchParams.get(prop),
-  });
-  // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-  return params[key];
-}; */
