@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ session['title'] }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block css_link %}{% endblock %}
+</head>
+<body>
+
+    <div id="navbar">
+        <div id="menu_bars" class="menu_bars">
+            <i id="nav_bar_menu_bars" class="fa-solid fa-bars fa-xl bars"></i>
+            <i id="nav_bar_menu_x" class="fa-solid fa-x fa-xl x"></i>
+        </div>
+        <div class="logo_container">
+            <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="logo">
+        </div>
+        <div class="navbar_menu">
+            <h1>
+                {{ session['title'] }}
+            </h1>
+            <ul>
+                <li>
+                    <i class="fa-regular fa-user fa-xl"></i>
+                    <h2>{{ session['username'] }}</h2>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <i class="fa-solid fa-right-from-bracket fa-xl"></i>
+                        <h3>Logout</h3>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="sidebar">
+        <ul class="sidebar_menu">
+            <li class="sidebar_item">
+                <a href="/dashboard" id="dashboard" class="sidebar_links active">
+                    <div class="icon">
+                        <i class="fa-brands fa-windows fa-xl"></i>
+                    </div>
+                    <div class="sidebar_item_name"><h3>Dashboard</h3></div>
+                </a>
+            </li>
+            <li class="sidebar_item">
+                <a href="/assets" id="assets" class="sidebar_links">
+                    <div class="icon">
+                        <i class="fa-solid fa-warehouse fa-xl"></i>
+                    </div>
+                    <div class="sidebar_item_name"><h3>Assets</h3></div>
+                </a>
+            </li>
+            <li class="sidebar_item">
+                <a href="/equity_liability" id="equity_liability" class="sidebar_links">
+                    <div class="icon">
+                        <i class="fa-solid fa-landmark fa-xl"></i>
+                    </div>
+                    <div class="sidebar_item_name equity_liability_item"><h4>Equity & Liability</h4></div>
+                </a>
+            </li>
+            <li id="equity_liability" class="sidebar_item">
+                <a href="/reports" id="reports" class="sidebar_links">
+                    <div class="icon">
+                        <i class="fa-solid fa-scroll fa-xl"></i>
+                    </div>
+                    <div class="sidebar_item_name"><h3>Reports</h3></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% block main %}{% endblock %}
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script type="text/javascript" src="{{ url_for ('static', filename='js/index_layout.js') }}"></script>
+    {% block js_script %}{% endblock %}
+    
+    
+</body>
+</html>
