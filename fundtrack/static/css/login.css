@@ -102,11 +102,11 @@ main .login_form .link_btn .login_btn {
     color: #FFFFFF;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 main .login_form .link_btn .login_btn:hover {
     opacity: 85%;
-    cursor: pointer;
 }
 
 /*===============
