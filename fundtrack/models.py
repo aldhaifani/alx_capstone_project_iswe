@@ -20,6 +20,65 @@ class User(db.Model, UserMixin):
     liabilities = db.relationship("Liability")
     equities = db.relationship("Equity")
 
+    def get_total_current_assets(self):
+        """calculates the total value of the current assets
+
+        Returns:
+            int: the total value of the current assets
+        """
+        total = 0
+        for asset in self.assets:
+            if asset.current:
+                total += asset.value
+        return total
+
+    def get_total_non_current_assets(self):
+        """calculates the total value of the non-current assets
+
+        Returns:
+            int: the total value of the non-current assets
+        """
+        total = 0
+        for asset in self.assets:
+            if not asset.current:
+                total += asset.value
+        return total
+
+    def get_total_current_liability(self):
+        """calculates the total value of the current liabilities
+
+        Returns:
+            int: the total value of the current liabilities
+        """
+        total = 0
+        for liability in self.liabilities:
+            if liability.current:
+                total += liability.value
+        return total
+
+    def get_total_non_current_liability(self):
+        """calculates the total value of the non-current liabilities
+
+        Returns:
+            int: the total value of the non-current liabilities
+        """
+        total = 0
+        for liability in self.liabilities:
+            if not liability.current:
+                total += liability.value
+        return total
+
+    def get_total_equity(self):
+        """calculates the total value of the equities
+
+        Returns:
+            int: the total value of the equities
+        """
+        total = 0
+        for equity in self.equities:
+            total += equity.value
+        return total
+
 
 class Asset(db.Model):
     """Asset model that represents the assets,
@@ -29,9 +88,9 @@ class Asset(db.Model):
     """
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256), unique=True)
+    name = db.Column(db.String(512))
     value = db.Column(db.Integer)
-    current = True
+    current = db.Column(db.Boolean, default=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
 
@@ -43,9 +102,9 @@ class Liability(db.Model):
     """
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256), unique=True)
+    name = db.Column(db.String(256))
     value = db.Column(db.Integer)
-    current = True
+    current = db.Column(db.Boolean, default=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
 
@@ -57,6 +116,6 @@ class Equity(db.Model):
     """
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256), unique=True)
+    name = db.Column(db.String(256))
     value = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
