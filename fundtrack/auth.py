@@ -58,7 +58,7 @@ def signup():
                 db.session.commit()
 
                 # redirect the user to the login page
-                return redirect(url_for("auth.login", user_created="True"))
+                return redirect(url_for("auth.login"))
             else:
                 return render_template("signup.html", user_already_exist="True")
         return render_template("signup.html", username_exists="True")
