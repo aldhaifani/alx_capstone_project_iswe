@@ -34,3 +34,51 @@ nav_bar_menu.addEventListener('click', () => {
 		nav_bar_menu_x.style.display = 'none';
 	}
 });
+
+/* ============
+		edit db
+==============*/
+/**
+ * deleteEquity - functions that fetches the route
+ * to delete a equity instance from the db
+ *
+ * @param {*} id
+ */
+function deleteEquity(id) {
+	fetch('/delete-equity', {
+		method: 'POST',
+		body: JSON.stringify({ equityId: id }),
+	}).then((_res) => {
+		window.location.href = '/equity_liability';
+	});
+}
+
+/**
+ * deleteLiability - functions that fetches the route
+ * to delete a liability instance from the db
+ *
+ * @param {*} id
+ */
+function deleteLiability(id) {
+	fetch('/delete-liability', {
+		method: 'POST',
+		body: JSON.stringify({ liabilityId: id }),
+	}).then((_res) => {
+		window.location.href = '/equity_liability';
+	});
+}
+
+/**
+ * deleteAsset - functions that fetches the route
+ * to delete a asset instance from the db
+ *
+ * @param {*} id
+ */
+function deleteAsset(id) {
+	fetch('/delete-asset', {
+		method: 'POST',
+		body: JSON.stringify({ assetId: id }),
+	}).then((_res) => {
+		window.location.href = '/assets';
+	});
+}
