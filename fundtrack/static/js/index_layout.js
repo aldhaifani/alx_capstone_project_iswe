@@ -25,10 +25,10 @@ const nav_bar_menu_x = document.getElementById('nav_bar_menu_x');
 
 nav_bar_menu.addEventListener('click', () => {
 	if (nav_bar_menu_bars.style.display == '') {
-		side_bar.style.display = 'block';
+		side_bar.style.display = 'flex';
 		nav_bar_menu_bars.style.display = 'none';
-		nav_bar_menu_x.style.display = 'block';
-	} else if (nav_bar_menu_x.style.display == 'block') {
+		nav_bar_menu_x.style.display = 'flex';
+	} else if (nav_bar_menu_x.style.display == 'flex') {
 		side_bar.style.display = 'none';
 		nav_bar_menu_bars.style.display = '';
 		nav_bar_menu_x.style.display = 'none';
