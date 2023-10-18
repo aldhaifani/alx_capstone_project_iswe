@@ -24,7 +24,12 @@
 				{% for equity in user.equities %}
 				<tr>
 					<td>{{ equity.name }}</td>
-					<td>{{ equity.value }}</td>
+					<td>
+						{{ equity.value }}
+						<a href="" class="edit">
+							<i class="fa-regular fa-pen-to-square"></i>
+						</a>
+					</td>
 				</tr>
 				{% endfor %}
 				<tr>
@@ -52,7 +57,12 @@
 				{% for liability in user.liabilities %} {% if not liability.current %}
 				<tr>
 					<td>{{ liability.name }}</td>
-					<td>{{ liability.value }}</td>
+					<td>
+						{{ liability.value }}
+						<a href="" class="edit">
+							<i class="fa-regular fa-pen-to-square"></i>
+						</a>
+					</td>
 				</tr>
 				{% endif %} {% endfor %}
 				<tr>
@@ -65,7 +75,12 @@
 				{% for liability in user.liabilities %} {% if liability.current %}
 				<tr>
 					<td>{{ liability.name }}</td>
-					<td>{{ liability.value }}</td>
+					<td>
+						{{ liability.value }}
+						<a href="" class="edit">
+							<i class="fa-regular fa-pen-to-square"></i>
+						</a>
+					</td>
 				</tr>
 				{% endif %} {% endfor %}
 				<tr>

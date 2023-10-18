@@ -24,7 +24,12 @@
 				{% for asset in user.assets %} {% if asset.current %}
 				<tr>
 					<td>{{ asset.name }}</td>
-					<td>{{ asset.value }}</td>
+					<td>
+						{{ asset.value }}
+						<a href="" class="edit">
+							<i class="fa-regular fa-pen-to-square"></i>
+						</a>
+					</td>
 				</tr>
 				{% endif %} {% endfor %}
 				<tr>
@@ -51,7 +56,12 @@
 				{% for asset in user.assets %} {% if not asset.current %}
 				<tr>
 					<td>{{ asset.name }}</td>
-					<td>{{ asset.value }}</td>
+					<td>
+						{{ asset.value }}
+						<a href="" class="edit">
+							<i class="fa-regular fa-pen-to-square"></i>
+						</a>
+					</td>
 				</tr>
 				{% endif %} {% endfor %}
 				<tr>
