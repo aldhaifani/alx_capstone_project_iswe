@@ -4,7 +4,7 @@ authentication blueprint definition script
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
-from .models import User
+from .models import User, Asset
 from . import db
 
 auth = Blueprint("auth", __name__)
@@ -12,6 +12,11 @@ auth = Blueprint("auth", __name__)
 
 @auth.route("/login", methods=["GET", "POST"])
 def login():
+    """Login route function
+
+    Returns:
+        render_template or redirect
+    """
     if request.method == "POST":
         email = request.form.get("email")
         passwd = request.form.get("passwd")
@@ -29,12 +34,22 @@ def login():
 @auth.route("/logout")
 @login_required
 def logout():
+    """Logout route function
+
+    Returns:
+        redirect
+    """
     logout_user()
     return redirect(url_for("views.home"))
 
 
 @auth.route("/signup", methods=["GET", "POST"])
 def signup():
+    """Signup route function
+
+    Returns:
+        render_template or redirect
+    """
     if request.method == "POST":
         name = request.form.get("name")
         email = request.form.get("email")
@@ -51,6 +66,14 @@ def signup():
             )
             db.session.add(new_user)
             db.session.commit()
+
+            # create a cash asset instance and initialize value to 0
+            cash_asset = Asset(
+                name="Cash in bank", value=0, current=True, user_id=new_user.id
+            )
+            db.session.add(cash_asset)
+            db.session.commit()
+            session["cash"] = 0
 
             # redirect the user to the login page
             return redirect(url_for("auth.login"))
