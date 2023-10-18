@@ -32,7 +32,7 @@ new Chart(dash_liability_chart, {
 		labels: ['Current', 'Non-Current'],
 		datasets: [
 			{
-				label: '$ in M',
+				label: '$',
 				data: [current_liability_value, non_current_liability_value],
 				backgroundColor: ['#A7ED36', '#ED8936'],
 				hoverOffset: 5,
