@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block css_link %}
+<link
+	rel="stylesheet"
+	href="{{ url_for('static', filename='css/form_equity.css') }}"
+/>
+{% endblock %} {% block main %}
+
+<div id="main-content">
+	<h1 class="title">{{ session['title'] }}</h1>
+	<form method="POST" id="form">
+		<div class="form_element">
+			<label for="name">Equity Name</label>
+			<input type="text" name="name" value="{{ equity.name }}" required />
+		</div>
+		<div class="form_element">
+			<label for="name">Equity Value ($)</label>
+			<input type="number" name="value" value="{{ equity.value }}" required />
+		</div>
+
+		<button type="submit">Submit</button>
+		<button
+			style="background-color: red"
+			onclick="deleteEquity({{ equity.id }})"
+		>
+			Delete
+		</button>
+	</form>
+</div>
+
+{% endblock %}

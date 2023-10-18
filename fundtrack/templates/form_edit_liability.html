@@ -1,0 +1,50 @@
+{% extends "layout.html" %} {% block css_link %}
+<link
+	rel="stylesheet"
+	href="{{ url_for('static', filename='css/form_assets.css') }}"
+/>
+{% endblock %} {% block main %}
+
+<div id="main-content">
+	<h1 class="title">{{ session['title'] }}</h1>
+	<form method="POST" id="form">
+		<div class="form_element">
+			<label for="name">Liability Name</label>
+			<input type="text" name="name" value="{{ liability.name }}" required />
+		</div>
+		<div class="form_element">
+			<label for="name">Liability Value ($)</label>
+			<input
+				type="number"
+				name="value"
+				value="{{ liability.value }}"
+				required
+			/>
+		</div>
+		<div class="form_element" id="fieldset_wrapper">
+			<fieldset>
+				<legend>Liability Type</legend>
+				<div class="fieldset_element">
+					<input type="radio" name="asset_type" value="current" {{ 'checked' if
+					liability.current else '' }} />
+					<label for="current">Current</label>
+				</div>
+				<div class="fieldset_element">
+					<input type="radio" name="asset_type" value="non_current" {{ 'checked'
+					if not liability.current else '' }} />
+					<label for="non_current">Non-Current</label>
+				</div>
+			</fieldset>
+		</div>
+
+		<button type="submit">Submit</button>
+		<button
+			style="background-color: red"
+			onclick="deleteLiability({{ liability.id }})"
+		>
+			Delete
+		</button>
+	</form>
+</div>
+
+{% endblock %}
