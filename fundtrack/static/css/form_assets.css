@@ -104,3 +104,10 @@
 		margin-top: 0;
 	}
 }
+
+/* form width when screen is too small  */
+@media (max-width: 400px) {
+	#form {
+		width: 300px;
+	}
+}

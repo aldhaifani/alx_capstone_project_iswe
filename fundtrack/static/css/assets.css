@@ -73,7 +73,7 @@
 	#main-content {
 		flex-direction: column;
 		overflow-y: scroll;
-		padding-top: 70px;
+		padding-top: 0px;
 	}
 	.card {
 		width: 100%;
@@ -91,5 +91,12 @@
 	}
 	#main-content .title {
 		display: block;
+	}
+}
+
+/* --- button size when screen is too small --- */
+@media (max-width: 350px) {
+	.card .card_button {
+		width: 70px;
 	}
 }
