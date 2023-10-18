@@ -1,55 +1,55 @@
 /* --- main content --- */
 #main-content {
-    height: calc(100vh - 80px);
-    width: calc(100vw - 250px);
-    margin-top: 80px;
-    padding: 0 20px 20px 20px;
-    display: flex;
-    justify-content: left;
+	height: calc(100vh - 80px);
+	width: calc(100vw - 250px);
+	margin-top: 80px;
+	padding: 0 20px 20px 20px;
+	display: flex;
+	justify-content: left;
 }
 
 #main-content .title {
-    display: none;
+	display: none;
 }
 
 .statement_list {
-    margin-top: 40px;
-    margin-left: 10px;
-    width: 70%;
+	margin-top: 40px;
+	margin-left: 10px;
+	width: 70%;
 }
 
 .statement_list ul {
-    width: 100%;
+	width: 100%;
 }
 
 .statement_list ul li {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .statement_list .statement_time {
-    color: #91969a;
-    font-size: medium;
+	color: #91969a;
+	font-size: medium;
 }
 
 .statement_list .statement_title {
-    font-size: small;
+	font-size: small;
 }
 
 .statement_list .download_button {
-    width: 70px;
-    height: 50px;
-    border: solid #aaaaaa;
-    border-radius: 5px;
-    background-color: #FBFCFE;
-    color: #5A6ACF;
-    cursor: pointer;
-    transition: all 200ms ease;
+	width: 70px;
+	height: 50px;
+	border: solid #aaaaaa;
+	border-radius: 5px;
+	background-color: #fbfcfe;
+	color: #5a6acf;
+	cursor: pointer;
+	transition: all 200ms ease;
 }
 
 .statement_list .download_button:hover {
-    opacity: .9;
+	opacity: 0.9;
 }
 
 /*===============
@@ -57,31 +57,30 @@
 ===============*/
 
 /* --- tablet --- */
-@media (max-width: 900px){
-    #main-content {
-        flex-direction: column;
-        overflow-y: scroll;
-    }
-    .statement_list {
-        margin-left: 10px;
-    }
+@media (max-width: 900px) {
+	#main-content {
+		flex-direction: column;
+		overflow-y: scroll;
+	}
+	.statement_list {
+		margin-left: 10px;
+	}
 }
 
 /* --- mobile & small tablets --- */
-@media (max-width: 800px){
-    /*-- main --*/
-    #main-content {
-        width: 100vw;
-        position: absolute;
-        z-index: 1;
-    }
-    .statement_list {
-        margin-left: 10px;
-        width: 100%;
-    }
-    #main-content .title {
-        display: block;
-        margin-bottom: 30px;
-    }
-
+@media (max-width: 800px) {
+	/*-- main --*/
+	#main-content {
+		width: 100vw;
+		position: absolute;
+		z-index: 1;
+	}
+	.statement_list {
+		margin-left: 10px;
+		width: 100%;
+	}
+	#main-content .title {
+		display: block;
+		margin-bottom: 30px;
+	}
 }
