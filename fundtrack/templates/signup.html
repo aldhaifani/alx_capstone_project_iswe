@@ -63,6 +63,11 @@
 	<p>© 2023 FundTrack. All Rights Reserved.</p>
 </footer>
 
+<script
+	type="text/javascript"
+	src="{{ url_for ('static', filename='js/index_base.js') }}"
+></script>
+
 <script>
 	form.addEventListener('submit', (e) => {
 		if ('{{ user_already_exist }}' == 'True') {
@@ -70,11 +75,6 @@
 			/* User doesn't exist message */
 			error.style.display = '';
 			error.innerHTML = 'User already exists! Please login.';
-		} else if ('{{ username_exists }}' == 'True') {
-			e.preventDefault();
-			/* User doesn't exist message */
-			error.style.display = '';
-			error.innerHTML = 'Username already exists! Please choose another.';
 		}
 	});
 </script>

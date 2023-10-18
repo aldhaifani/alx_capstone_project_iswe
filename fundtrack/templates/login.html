@@ -25,11 +25,11 @@
 				/>
 			</div>
 			<div class="form_element">
-				<label for="login_passwd">Password</label>
+				<label for="passwd">Password</label>
 				<input
 					type="password"
-					name="login_passwd"
-					id="login_passwd"
+					name="passwd"
+					id="passwd"
 					placeholder="Your password"
 				/>
 			</div>
@@ -46,6 +46,9 @@
 </footer>
 
 <script>
+	const form = document.getElementById('form');
+	const error = document.getElementById('error_msg');
+
 	form.addEventListener('submit', (e) => {
 		if ('{{ user_exist }}' == 'False') {
 			e.preventDefault();
