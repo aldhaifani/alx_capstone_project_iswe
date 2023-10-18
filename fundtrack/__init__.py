@@ -1,23 +1,28 @@
 """
 webapp init file
 """
+from os import path
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from os import path
 from flask_login import LoginManager
 
 
 # the data base for users auth
 db = SQLAlchemy()
-DB_name = "database.db"
+DB_NAME = "database.db"
 
 
 def create_app():
+    """main app creation
+
+    Returns:
+        flask app
+    """
     # create the app package
     app = Flask(__name__)
 
     # setting the database
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}".format(DB_name)
+    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
 
     # initializing the db
     db.init_app(app)
@@ -30,7 +35,7 @@ def create_app():
     from .auth import auth
 
     # assert that a db exists
-    from .models import User, Asset, Liability, Equity
+    from .models import User
 
     create_database(app)
 
@@ -56,7 +61,7 @@ def create_database(app):
     Args:
         app: flask app
     """
-    if not path.exists("fundtrack/" + DB_name):
+    if not path.exists("fundtrack/" + DB_NAME):
         with app.app_context():
             db.create_all()
         print("Database created")
