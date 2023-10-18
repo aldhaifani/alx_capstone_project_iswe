@@ -1,28 +1,24 @@
-{% extends "layout.html" %}
-
-
-{% block css_link %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/form_equity.css') }}">
-{% endblock %}
-
-{% block main %}
+{% extends "layout.html" %} {% block css_link %}
+<link
+	rel="stylesheet"
+	href="{{ url_for('static', filename='css/form_equity.css') }}"
+/>
+{% endblock %} {% block main %}
 
 <div id="main-content">
-    <h1 class="title">{{ session['title'] }}</h1>
-    <form method="POST" id="form">
+	<h1 class="title">{{ session['title'] }}</h1>
+	<form method="POST" id="form">
+		<div class="form_element">
+			<label for="name">Equity Name</label>
+			<input type="text" name="name" required />
+		</div>
+		<div class="form_element">
+			<label for="name">Equity Value ($)</label>
+			<input type="text" name="value" required />
+		</div>
 
-        <div class="form_element">
-            <label for="name">Equity Name</label>
-            <input type="text" name="name">
-        </div>
-        <div class="form_element">
-            <label for="name">Equity Value ($)</label>
-            <input type="text" name="value">
-        </div>
-
-        <button type="submit">Submit</button>
-
-    </form>
+		<button type="submit">Submit</button>
+	</form>
 </div>
 
 {% endblock %}

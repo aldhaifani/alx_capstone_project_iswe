@@ -1,40 +1,45 @@
-{% extends "layout.html" %}
-
-{% block css_link %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-{% endblock %}
-    
-{% block main %}
+{% extends "layout.html" %} {% block css_link %}
+<link
+	rel="stylesheet"
+	href="{{ url_for('static', filename='css/dashboard.css') }}"
+/>
+{% endblock %} {% block main %}
 
 <div id="main-content">
-    <h1 class="title">{{ session['title'] }}</h1>
-    <div class="card cash">
-        <h3>Cash in Bank</h3>
-        <h1>$773K</h1>
-        <div class="chart_wrapper">
-            <canvas id="dash_cash_chart" width="230px" height="230px"></canvas>
-        </div>
-    </div>
-    <div class="card liabilities">
-        <div class="card_header">
-            <div class="card_header_left">
-                <h3>Liabilities</h3>
-                <p class="card_time">For 2023</p>
-            </div>
-            <div class="card_header_right">
-                <a href="/equity_liability">
-                    <button class="card_button">View Report</button>
-                </a>
-            </div>
-        </div>
-        <div class="chart_wrapper">
-            <canvas id="dash_liability_chart" width="250px" height="250px"></canvas>
-        </div>
-    </div>
+	<h1 class="title">{{ session['title'] }}</h1>
+	<div class="card cash">
+		<h3>Cash in Bank</h3>
+		<h1>$773K</h1>
+		<div class="chart_wrapper">
+			<canvas id="dash_cash_chart" width="230px" height="230px"></canvas>
+		</div>
+	</div>
+	<div class="card liabilities">
+		<div class="card_header">
+			<div class="card_header_left">
+				<h3>Liabilities</h3>
+				<p class="card_time">For 2023</p>
+			</div>
+			<div class="card_header_right">
+				<a href="/equity_liability">
+					<button class="card_button">View Report</button>
+				</a>
+			</div>
+		</div>
+		<div class="chart_wrapper">
+			<canvas id="dash_liability_chart" width="250px" height="250px"></canvas>
+		</div>
+	</div>
 </div>
 
-{% endblock %}
-
-{% block js_script %}
-    <script type="text/javascript" src="{{ url_for ('static', filename='js/dashboard.js') }}"></script>
+{% endblock %} {% block js_script %}
+<script type="text/javascript">
+	let current_liability_value = '{{ user.get_total_current_liability() }}';
+	let non_current_liability_value =
+		'{{ user.get_total_non_current_liability() }}';
+</script>
+<script
+	type="text/javascript"
+	src="{{ url_for ('static', filename='js/dashboard.js') }}"
+></script>
 {% endblock %}

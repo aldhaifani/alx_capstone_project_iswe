@@ -1,68 +1,60 @@
-{% extends "base.html" %}
-
-{% block title %}Login{% endblock %}
-{% block css_link %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-{% endblock %}
-
-
-{% block body %}
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block css_link
+%}
+<link
+	rel="stylesheet"
+	href="{{ url_for('static', filename='css/login.css') }}"
+/>
+{% endblock %} {% block body %}
 
 <header>
-    <div class="logo_container">
-        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="logo">
-    </div>
+	<div class="logo_container">
+		<img src="{{ url_for('static', filename='assets/logo.png') }}" alt="logo" />
+	</div>
 </header>
 <main>
-    <div class="hero">
-        <h1>Log into<br>your account</h1>
-        <form class="login_form" method="POST" id="form">
-            <div class="form_element">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" placeholder="name@example.com">
-            </div>
-            <div class="form_element">
-                <label for="login_passwd">Password</label>
-                <input type="password" name="login_passwd" id="login_passwd" placeholder="Your password">
-            </div>
-            <p id="error_msg" style="display: none;"></p>
-            <div class="link_btn">
-                <p>
-                    Don't have an account? <a href="/signup">Signup</a>  
-                </p>
-                <button class="login_btn" type="submit">Login</button>
-            </div>
-        </form>
-    </div>
+	<div class="hero">
+		<h1>Log into<br />your account</h1>
+		<form class="login_form" method="POST" id="form">
+			<div class="form_element">
+				<label for="email">Email</label>
+				<input
+					type="text"
+					name="email"
+					id="email"
+					placeholder="name@example.com"
+				/>
+			</div>
+			<div class="form_element">
+				<label for="login_passwd">Password</label>
+				<input
+					type="password"
+					name="login_passwd"
+					id="login_passwd"
+					placeholder="Your password"
+				/>
+			</div>
+			<p id="error_msg" style="display: none"></p>
+			<div class="link_btn">
+				<p>Don't have an account? <a href="/signup">Signup</a></p>
+				<button class="login_btn" type="submit">Login</button>
+			</div>
+		</form>
+	</div>
 </main>
 <footer>
-    <p>
-        © 2023 FundTrack. All Rights Reserved.
-    </p>
+	<p>© 2023 FundTrack. All Rights Reserved.</p>
 </footer>
 
 <script>
-
-    form.addEventListener('submit', (e) => {
-        if ("{{ user_exist }}" == "False") {
-            e.preventDefault();
-            /* User doesn't exist message */
-            error.style.display = '';
-            error.innerHTML = 'Incorrect credentials. Please check your email and password.';
-        }
-    });
-
-    const params = new URLSearchParams(window.location.search);
-
-    if (params.get('user_created') == 'True') {
-        error.style.display = '';
-        error.innerHTML = 'Account created successfuly!';
-        error.style.backgroundColor = 'green';
-        setTimeout(() => {
-            error.style.display = 'none';
-        }, 2000);
-    }
-
+	form.addEventListener('submit', (e) => {
+		if ('{{ user_exist }}' == 'False') {
+			e.preventDefault();
+			/* User doesn't exist message */
+			error.style.display = '';
+			error.innerHTML =
+				'Incorrect credentials. Please check your email and password.';
+		}
+	});
 </script>
 
 {% endblock %}

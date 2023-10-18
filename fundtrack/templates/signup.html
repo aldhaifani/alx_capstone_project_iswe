@@ -1,71 +1,82 @@
-{% extends "base.html" %}
-
-{% block title %}Login{% endblock %}
-{% block css_link %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
-{% endblock %}
-
-
-{% block body %}
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block css_link
+%}
+<link
+	rel="stylesheet"
+	href="{{ url_for('static', filename='css/signup.css') }}"
+/>
+{% endblock %} {% block body %}
 
 <header>
-    <div class="logo_container">
-        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="logo">
-    </div>
+	<div class="logo_container">
+		<img src="{{ url_for('static', filename='assets/logo.png') }}" alt="logo" />
+	</div>
 </header>
 <main>
-    <div class="hero">
-        <h1>Signup for<br>a new account</h1>
-        <form class="login_form" method="POST" id="form">
-            <div class="form_element">
-                <label for="name">Full Name</label>
-                <input type="text" name="name" id="name" placeholder="Tareq Al-Dhaifani">
-            </div>
-            <div class="form_element">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" placeholder="name@example.com">
-            </div>
-            <div class="form_element">
-                <label for="passwd">Password</label>
-                <input type="password" name="passwd" id="passwd" placeholder="Your password">
-            </div>
-            <div class="form_element">
-                <label for="cpasswd">Confirm Password</label>
-                <input type="password" name="cpasswd" id="cpasswd" placeholder="Confirm your password">
-            </div>
-            <p id="error_msg" style="display: none;">hello</p>
-            <div class="link_btn">
-                <p>
-                    Already have an account? <a href="/login">Login</a>  
-                </p>
-                <button class="login_btn" type="submit">Signup</button>
-            </div>
-        </form>
-    </div>
+	<div class="hero">
+		<h1>Signup for<br />a new account</h1>
+		<form class="login_form" method="POST" id="form">
+			<div class="form_element">
+				<label for="name">Full Name</label>
+				<input
+					type="text"
+					name="name"
+					id="name"
+					placeholder="Tareq Al-Dhaifani"
+				/>
+			</div>
+			<div class="form_element">
+				<label for="email">Email</label>
+				<input
+					type="text"
+					name="email"
+					id="email"
+					placeholder="name@example.com"
+				/>
+			</div>
+			<div class="form_element">
+				<label for="passwd">Password</label>
+				<input
+					type="password"
+					name="passwd"
+					id="passwd"
+					placeholder="Your password"
+				/>
+			</div>
+			<div class="form_element">
+				<label for="cpasswd">Confirm Password</label>
+				<input
+					type="password"
+					name="cpasswd"
+					id="cpasswd"
+					placeholder="Confirm your password"
+				/>
+			</div>
+			<p id="error_msg" style="display: none">hello</p>
+			<div class="link_btn">
+				<p>Already have an account? <a href="/login">Login</a></p>
+				<button class="login_btn" type="submit">Signup</button>
+			</div>
+		</form>
+	</div>
 </main>
 <footer>
-    <p>
-        © 2023 FundTrack. All Rights Reserved.
-    </p>
+	<p>© 2023 FundTrack. All Rights Reserved.</p>
 </footer>
 
 <script>
-
-    form.addEventListener('submit', (e) => {
-        if ("{{ user_already_exist }}" == "True") {
-            e.preventDefault();
-            /* User doesn't exist message */
-            error.style.display = '';
-            error.innerHTML = 'User already exists! Please login.';
-        } else if ("{{ username_exists }}" == "True") {
-            e.preventDefault();
-            /* User doesn't exist message */
-            error.style.display = '';
-            error.innerHTML = 'Username already exists! Please choose another.';
-        }
-
-    });
-
+	form.addEventListener('submit', (e) => {
+		if ('{{ user_already_exist }}' == 'True') {
+			e.preventDefault();
+			/* User doesn't exist message */
+			error.style.display = '';
+			error.innerHTML = 'User already exists! Please login.';
+		} else if ('{{ username_exists }}' == 'True') {
+			e.preventDefault();
+			/* User doesn't exist message */
+			error.style.display = '';
+			error.innerHTML = 'Username already exists! Please choose another.';
+		}
+	});
 </script>
 
 {% endblock %}

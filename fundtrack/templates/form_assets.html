@@ -1,41 +1,37 @@
-{% extends "layout.html" %}
-
-
-{% block css_link %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/form_assets.css') }}">
-{% endblock %}
-
-{% block main %}
+{% extends "layout.html" %} {% block css_link %}
+<link
+	rel="stylesheet"
+	href="{{ url_for('static', filename='css/form_assets.css') }}"
+/>
+{% endblock %} {% block main %}
 
 <div id="main-content">
-    <h1 class="title">{{ session['title'] }}</h1>
-    <form method="POST" id="form">
+	<h1 class="title">{{ session['title'] }}</h1>
+	<form method="POST" id="form">
+		<div class="form_element">
+			<label for="name">Asset Name</label>
+			<input type="text" name="name" required />
+		</div>
+		<div class="form_element">
+			<label for="name">Asset Value ($)</label>
+			<input type="text" name="value" required />
+		</div>
+		<div class="form_element" id="fieldset_wrapper">
+			<fieldset>
+				<legend>Asset Type</legend>
+				<div class="fieldset_element">
+					<input type="radio" name="asset_type" value="current" checked />
+					<label for="current">Current</label>
+				</div>
+				<div class="fieldset_element">
+					<input type="radio" name="asset_type" value="non_current" />
+					<label for="non_current">Non-Current</label>
+				</div>
+			</fieldset>
+		</div>
 
-        <div class="form_element">
-            <label for="name">Asset Name</label>
-            <input type="text" name="name">
-        </div>
-        <div class="form_element">
-            <label for="name">Asset Value ($)</label>
-            <input type="text" name="value">
-        </div>
-        <div class="form_element" id="fieldset_wrapper">
-            <fieldset>
-                <legend>Asset Type</legend>
-                <div class="fieldset_element">
-                    <input type="radio" name="asset_type" id="current" value="current" checked />
-                    <label for="current">Current</label>
-                </div>
-                <div class="fieldset_element">
-                    <input type="radio" name="asset_type" id="non_current" value="non_current" />
-                    <label for="non_current">Non-Current</label>
-                </div>
-            </fieldset>
-        </div>
-
-        <button type="submit">Submit</button>
-
-    </form>
+		<button type="submit">Submit</button>
+	</form>
 </div>
 
 {% endblock %}
