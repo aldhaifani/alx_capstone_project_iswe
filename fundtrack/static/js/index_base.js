@@ -48,6 +48,7 @@ let validatePassword = () => {
 				'Password must contain atleast one special character (e.g. !@#$%^&*)';
 			return false;
 		} else {
+			error.style.display = 'none';
 			return true;
 		}
 	}
@@ -68,6 +69,7 @@ let validateCPassword = () => {
 		error.innerHTML = 'Passwords must match';
 		return false;
 	}
+	error.style.display = 'none';
 	return true;
 };
 
@@ -88,5 +90,6 @@ let validateEmail = () => {
 		error.innerHTML = 'Please put a valid email';
 		return false;
 	}
+	error.style.display = 'none';
 	return true;
 };
