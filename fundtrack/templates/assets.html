@@ -25,7 +25,7 @@
 				<tr>
 					<td>{{ asset.name }}</td>
 					<td>
-						{{ asset.value }}
+						{{ "${:,.2f}".format(asset.value) }}
 						<a href="/assets/edit_assets/{{ asset.id }}" class="edit">
 							<i class="fa-regular fa-pen-to-square"></i>
 						</a>
@@ -34,7 +34,9 @@
 				{% endif %} {% endfor %}
 				<tr>
 					<td class="total">Total</td>
-					<td class="total">{{ user.get_total_current_assets() }}</td>
+					<td class="total">
+						{{ "${:,.2f}".format(user.get_total_current_assets()) }}
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -57,7 +59,7 @@
 				<tr>
 					<td>{{ asset.name }}</td>
 					<td>
-						{{ asset.value }}
+						{{ "${:,.2f}".format(asset.value) }}
 						<a href="/assets/edit_assets/{{ asset.id }}" class="edit">
 							<i class="fa-regular fa-pen-to-square"></i>
 						</a>
@@ -66,7 +68,7 @@
 				{% endif %} {% endfor %}
 				<tr>
 					<td class="total">Total</td>
-					<td class="total">{{ user.get_total_non_current_assets() }}</td>
+					<td class="total">{{ "${:,.2f}".format(user.get_total_non_current_assets()) }}</td>
 				</tr>
 			</table>
 		</div>

@@ -25,7 +25,7 @@
 				<tr>
 					<td>{{ equity.name }}</td>
 					<td>
-						{{ equity.value }}
+						{{ "${:,.2f}".format(equity.value) }}
 						<a
 							href="/equity_liability/edit_equity/{{ equity.id }}"
 							class="edit"
@@ -37,7 +37,9 @@
 				{% endfor %}
 				<tr>
 					<td class="total">Total</td>
-					<td class="total">{{ user.get_total_equity() }}</td>
+					<td class="total">
+						{{ "${:,.2f}".format(user.get_total_equity()) }}
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -61,7 +63,7 @@
 				<tr>
 					<td>{{ liability.name }}</td>
 					<td>
-						{{ liability.value }}
+						{{ "${:,.2f}".format(liability.value) }}
 						<a
 							href="/equity_liability/edit_liability/{{ liability.id }}"
 							class="edit"
@@ -73,7 +75,9 @@
 				{% endif %} {% endfor %}
 				<tr>
 					<td class="total">Total</td>
-					<td class="total">{{ user.get_total_non_current_liability() }}</td>
+					<td class="total">
+						{{ "${:,.2f}".format(user.get_total_non_current_liability()) }}
+					</td>
 				</tr>
 			</table>
 			<h4>Current</h4>
@@ -82,7 +86,7 @@
 				<tr>
 					<td>{{ liability.name }}</td>
 					<td>
-						{{ liability.value }}
+						{{ "${:,.2f}".format(liability.value) }}
 						<a
 							href="/equity_liability/edit_liability/{{ liability.id }}"
 							class="edit"
@@ -94,7 +98,9 @@
 				{% endif %} {% endfor %}
 				<tr>
 					<td class="total">Total</td>
-					<td class="total">{{ user.get_total_current_liability() }}</td>
+					<td class="total">
+						{{ "${:,.2f}".format(user.get_total_current_liability()) }}
+					</td>
 				</tr>
 			</table>
 		</div>

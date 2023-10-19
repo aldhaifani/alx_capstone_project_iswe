@@ -9,7 +9,7 @@
 	<h1 class="title">{{ session['title'] }}</h1>
 	<div class="card cash">
 		<h3>Cash in Bank</h3>
-		<h1>${{ session['cash'] / 1000 }}K</h1>
+		<h1>{{ "${:,.2f}".format(session['cash'] / 1000) }}K</h1>
 		<div class="chart_wrapper">
 			<canvas id="dash_cash_chart" width="230px" height="230px"></canvas>
 		</div>
