@@ -56,8 +56,8 @@ def assets():
     return render_template("assets.html", user=current_user)
 
 
-@views.route("/assets/add", methods=["GET", "POST"])
-@views.route("/assets/add/", methods=["GET", "POST"])
+@views.route("/assets/add_assets", methods=["GET", "POST"])
+@views.route("/assets/add_assets/", methods=["GET", "POST"])
 @login_required
 def form_add_assets():
     """Assets add form route
@@ -70,11 +70,7 @@ def form_add_assets():
     if request.method == "POST":
         name = request.form.get("name")
         value = int(request.form.get("value"))
-        asset_type = (
-            True
-            if request.form.get("asset_type") == "current"
-            else False
-        )
+        asset_type = True if request.form.get("asset_type") == "current" else False
 
         new_asset = Asset(
             name=name, value=value, current=asset_type, user_id=current_user.id
@@ -87,8 +83,8 @@ def form_add_assets():
     return render_template("form_assets.html", user=current_user)
 
 
-@views.route("/assets/edit/<string:id>", methods=["GET", "POST"])
-@views.route("/assets/edit/<string:id>/", methods=["GET", "POST"])
+@views.route("/assets/edit_assets/<string:id>", methods=["GET", "POST"])
+@views.route("/assets/edit_assets/<string:id>/", methods=["GET", "POST"])
 @login_required
 def form_edit_assets(id):
     """Assets edit form route
@@ -103,11 +99,7 @@ def form_edit_assets(id):
     if request.method == "POST":
         asset.name = request.form.get("name")
         asset.value = int(request.form.get("value"))
-        asset.current = (
-            True
-            if request.form.get("asset_type") == "current"
-            else False
-        )
+        asset.current = True if request.form.get("asset_type") == "current" else False
 
         db.session.commit()
 
@@ -176,14 +168,8 @@ def form_equity():
     return render_template("form_equity.html", user=current_user)
 
 
-@views.route(
-    "/equity_liability/edit_equity/<string:id>",
-    methods=["GET", "POST"]
-)
-@views.route(
-    "/equity_liability/edit_equity/<string:id>/",
-    methods=["GET", "POST"]
-)
+@views.route("/equity_liability/edit_equity/<string:id>", methods=["GET", "POST"])
+@views.route("/equity_liability/edit_equity/<string:id>/", methods=["GET", "POST"])
 @login_required
 def form_edit_equity(id):
     """Equity edit form route
@@ -245,10 +231,7 @@ def form_liability():
         )
 
         new_liability = Liability(
-            name=name,
-            value=value,
-            current=liability_type,
-            user_id=current_user.id
+            name=name, value=value, current=liability_type, user_id=current_user.id
         )
         db.session.add(new_liability)
         db.session.commit()
@@ -257,14 +240,8 @@ def form_liability():
     return render_template("form_liability.html", user=current_user)
 
 
-@views.route(
-    "/equity_liability/edit_liability/<string:id>",
-    methods=["GET", "POST"]
-)
-@views.route(
-    "/equity_liability/edit_liability/<string:id>/",
-    methods=["GET", "POST"]
-)
+@views.route("/equity_liability/edit_liability/<string:id>", methods=["GET", "POST"])
+@views.route("/equity_liability/edit_liability/<string:id>/", methods=["GET", "POST"])
 @login_required
 def form_edit_liability(id):
     """Liability edit form route
