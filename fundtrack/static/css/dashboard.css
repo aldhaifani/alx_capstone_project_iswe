@@ -2,7 +2,7 @@
 #main-content {
 	height: fit-content;
 	width: calc(100vw - 250px);
-	margin-top: 90px;
+	margin-top: 80px;
 	padding: 40px 20px 20px 20px;
 	display: flex;
 	justify-content: space-evenly;
@@ -68,7 +68,7 @@
 	#main-content {
 		flex-direction: column;
 		overflow-y: scroll;
-		padding-top: 70px;
+		padding-top: 0;
 	}
 	.card {
 		width: 100%;
@@ -86,6 +86,5 @@
 	}
 	#main-content .title {
 		display: block;
-		margin-top: 100px;
 	}
 }
