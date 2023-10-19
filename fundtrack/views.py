@@ -19,6 +19,8 @@ views = Blueprint("views", __name__)
 
 
 @views.route("/")
+@views.route("/home")
+@views.route("/home/")
 def home():
     """Home route
 
@@ -29,6 +31,7 @@ def home():
 
 
 @views.route("/dashboard")
+@views.route("/dashboard/")
 @login_required
 def dashboard():
     """Dashboard route
@@ -41,6 +44,7 @@ def dashboard():
 
 
 @views.route("/assets")
+@views.route("/assets/")
 @login_required
 def assets():
     """Assets route
@@ -53,6 +57,7 @@ def assets():
 
 
 @views.route("/assets/add", methods=["GET", "POST"])
+@views.route("/assets/add/", methods=["GET", "POST"])
 @login_required
 def form_add_assets():
     """Assets add form route
@@ -79,6 +84,7 @@ def form_add_assets():
 
 
 @views.route("/assets/edit/<string:id>", methods=["GET", "POST"])
+@views.route("/assets/edit/<string:id>/", methods=["GET", "POST"])
 @login_required
 def form_edit_assets(id):
     """Assets edit form route
@@ -106,6 +112,7 @@ def form_edit_assets(id):
 
 
 @views.route("/delete-asset", methods=["POST"])
+@views.route("/delete-asset/", methods=["POST"])
 @login_required
 def delete_asset():
     asset = json.loads(request.data)
@@ -120,6 +127,7 @@ def delete_asset():
 
 
 @views.route("/equity_liability")
+@views.route("/equity_liability/")
 @login_required
 def equity_liability():
     """equity_liability add form route
@@ -132,6 +140,7 @@ def equity_liability():
 
 
 @views.route("/equity_liability/add_equity", methods=["GET", "POST"])
+@views.route("/equity_liability/add_equity/", methods=["GET", "POST"])
 @login_required
 def form_equity():
     """Equity add form route
@@ -155,6 +164,7 @@ def form_equity():
 
 
 @views.route("/equity_liability/edit_equity/<string:id>", methods=["GET", "POST"])
+@views.route("/equity_liability/edit_equity/<string:id>/", methods=["GET", "POST"])
 @login_required
 def form_edit_equity(id):
     """Equity edit form route
@@ -178,6 +188,7 @@ def form_edit_equity(id):
 
 
 @views.route("/delete-equity", methods=["POST"])
+@views.route("/delete-equity/", methods=["POST"])
 @login_required
 def delete_equity():
     equity = json.loads(request.data)
@@ -192,6 +203,7 @@ def delete_equity():
 
 
 @views.route("/equity_liability/add_liability", methods=["GET", "POST"])
+@views.route("/equity_liability/add_liability/", methods=["GET", "POST"])
 @login_required
 def form_liability():
     """Liability add form route
@@ -219,6 +231,7 @@ def form_liability():
 
 
 @views.route("/equity_liability/edit_liability/<string:id>", methods=["GET", "POST"])
+@views.route("/equity_liability/edit_liability/<string:id>/", methods=["GET", "POST"])
 @login_required
 def form_edit_liability(id):
     """Liability edit form route
@@ -245,6 +258,7 @@ def form_edit_liability(id):
 
 
 @views.route("/delete-liability", methods=["POST"])
+@views.route("/delete-liability/", methods=["POST"])
 @login_required
 def delete_liability():
     liability = json.loads(request.data)
@@ -259,6 +273,7 @@ def delete_liability():
 
 
 @views.route("/reports")
+@views.route("/reports/")
 @login_required
 def reports():
     """reports add form route
