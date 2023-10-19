@@ -1,21 +1,42 @@
 /*=============
     Layout 
 ===============*/
+let to_select = '';
+let current_page_url = window.location.href.split('/');
 
-const sidebar_items = document.getElementsByClassName('sidebar_links');
-let current_page = '';
-if (window.location.href.split('/').length == 4) {
-	current_page = window.location.href.split('/').slice(-1)[0];
+if (
+	current_page_url.slice(-1) == '' ||
+	Number.isInteger(current_page_url.slice(-1) * 1)
+) {
+	to_select = current_page_url.slice(-2, -1);
+} else {
+	to_select = current_page_url.slice(-1);
 }
 
-let current_page_sidebar = '';
-if (current_page) {
-	let current = document.getElementsByClassName('active');
-	if (current.length > 0) {
-		current[0].className = current[0].className.replace(' active', '');
+const to_select_map = {
+	assets: 'assets',
+	add_assets: 'assets',
+	edit_assets: 'assets',
+	equity_liability: 'equity_liability',
+	add_liability: 'equity_liability',
+	edit_liability: 'equity_liability',
+	equity_liability: 'equity_liability',
+	add_equity: 'equity_liability',
+	edit_equity: 'equity_liability',
+	reports: 'reports',
+};
+
+let current_selected = '';
+if (to_select_map[to_select]) {
+	let current_selected = document.getElementsByClassName('active');
+	if (current_selected.length > 0) {
+		current_selected[0].className = current_selected[0].className.replace(
+			' active',
+			''
+		);
 	}
-	current_page_sidebar = document.getElementById(current_page);
-	current_page_sidebar.className += ' active';
+	let to_select_page = document.getElementById(to_select_map[to_select]);
+	to_select_page.className += ' active';
 }
 
 const nav_bar_menu = document.getElementById('menu_bars');
