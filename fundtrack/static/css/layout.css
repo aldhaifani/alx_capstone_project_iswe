@@ -118,6 +118,10 @@ main {
 	width: 100px;
 }
 
+#navbar .username {
+	margin-left: 7px;
+}
+
 #navbar .navbar_menu ul a {
 	color: #013220;
 	text-decoration: none;
