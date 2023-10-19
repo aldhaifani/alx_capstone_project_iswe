@@ -78,7 +78,7 @@ main .login_form .form_element input {
 
 main .login_form .link_btn {
 	height: fit-content;
-	margin-top: 20 px;
+	margin-top: 20px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;

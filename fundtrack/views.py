@@ -1,6 +1,7 @@
 """
 routes blueprint definition script
 """
+import json
 from flask import (
     Blueprint,
     render_template,
@@ -13,7 +14,6 @@ from flask import (
 from flask_login import login_required, current_user
 from .models import Asset, Equity, Liability
 from . import db
-import json
 
 views = Blueprint("views", __name__)
 
@@ -70,7 +70,11 @@ def form_add_assets():
     if request.method == "POST":
         name = request.form.get("name")
         value = int(request.form.get("value"))
-        asset_type = True if request.form.get("asset_type") == "current" else False
+        asset_type = (
+            True
+            if request.form.get("asset_type") == "current"
+            else False
+        )
 
         new_asset = Asset(
             name=name, value=value, current=asset_type, user_id=current_user.id
@@ -99,7 +103,11 @@ def form_edit_assets(id):
     if request.method == "POST":
         asset.name = request.form.get("name")
         asset.value = int(request.form.get("value"))
-        asset.current = True if request.form.get("asset_type") == "current" else False
+        asset.current = (
+            True
+            if request.form.get("asset_type") == "current"
+            else False
+        )
 
         db.session.commit()
 
@@ -115,10 +123,15 @@ def form_edit_assets(id):
 @views.route("/delete-asset/", methods=["POST"])
 @login_required
 def delete_asset():
-    asset = json.loads(request.data)
-    assetId = asset["assetId"]
+    """Delete asset
 
-    asset = Asset.query.get(assetId)
+    Returns:
+        json string
+    """
+    asset = json.loads(request.data)
+    asset_id = asset["assetId"]
+
+    asset = Asset.query.get(asset_id)
     if asset:
         if asset.user_id == current_user.id:
             db.session.delete(asset)
@@ -163,8 +176,14 @@ def form_equity():
     return render_template("form_equity.html", user=current_user)
 
 
-@views.route("/equity_liability/edit_equity/<string:id>", methods=["GET", "POST"])
-@views.route("/equity_liability/edit_equity/<string:id>/", methods=["GET", "POST"])
+@views.route(
+    "/equity_liability/edit_equity/<string:id>",
+    methods=["GET", "POST"]
+)
+@views.route(
+    "/equity_liability/edit_equity/<string:id>/",
+    methods=["GET", "POST"]
+)
 @login_required
 def form_edit_equity(id):
     """Equity edit form route
@@ -191,10 +210,15 @@ def form_edit_equity(id):
 @views.route("/delete-equity/", methods=["POST"])
 @login_required
 def delete_equity():
-    equity = json.loads(request.data)
-    equityId = equity["equityId"]
+    """Delete Equity
 
-    equity = Equity.query.get(equityId)
+    Returns:
+    json string
+    """
+    equity = json.loads(request.data)
+    equity_id = equity["equityId"]
+
+    equity = Equity.query.get(equity_id)
     if equity:
         if equity.user_id == current_user.id:
             db.session.delete(equity)
@@ -221,7 +245,10 @@ def form_liability():
         )
 
         new_liability = Liability(
-            name=name, value=value, current=liability_type, user_id=current_user.id
+            name=name,
+            value=value,
+            current=liability_type,
+            user_id=current_user.id
         )
         db.session.add(new_liability)
         db.session.commit()
@@ -230,8 +257,14 @@ def form_liability():
     return render_template("form_liability.html", user=current_user)
 
 
-@views.route("/equity_liability/edit_liability/<string:id>", methods=["GET", "POST"])
-@views.route("/equity_liability/edit_liability/<string:id>/", methods=["GET", "POST"])
+@views.route(
+    "/equity_liability/edit_liability/<string:id>",
+    methods=["GET", "POST"]
+)
+@views.route(
+    "/equity_liability/edit_liability/<string:id>/",
+    methods=["GET", "POST"]
+)
 @login_required
 def form_edit_liability(id):
     """Liability edit form route
@@ -261,10 +294,15 @@ def form_edit_liability(id):
 @views.route("/delete-liability/", methods=["POST"])
 @login_required
 def delete_liability():
-    liability = json.loads(request.data)
-    liabilityId = liability["liabilityId"]
+    """Delete laibility
 
-    liability = Liability.query.get(liabilityId)
+    Returns:
+        json string
+    """
+    liability = json.loads(request.data)
+    liability_id = liability["liabilityId"]
+
+    liability = Liability.query.get(liability_id)
     if liability:
         if liability.user_id == current_user.id:
             db.session.delete(liability)
